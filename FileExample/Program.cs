@@ -51,6 +51,11 @@ namespace FileExample
                sw.WriteLine("StreamWriter voltam2");
             }
 
+            var content = File.ReadAllLines(@"..\..\test.txt");
+
+            //var info = Directory.CreateDirectory("TestFolder");
+            DirectoryInfo info = new DirectoryInfo(@"..\..\TestFolder");
+
             Console.ReadKey();
         }
     }
