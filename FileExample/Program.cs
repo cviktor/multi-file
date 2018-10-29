@@ -18,24 +18,39 @@ namespace FileExample
         {
             FileMode mode = FileMode.Open;
 
-            using (FileStream fs = new FileStream(@"..\..\test.txt", mode, FileAccess.ReadWrite, FileShare.Read))
+            //using (FileStream fs = new FileStream(@"..\..\test.txt", mode, FileAccess.ReadWrite, FileShare.Read))
+            //{
+            //    while (fs.Position < fs.Length)
+            //    {
+            //        int b = fs.ReadByte();
+            //        Console.WriteLine(b + " " + (char)b);
+            //    }
+
+            //    fs.WriteByte(33);
+            //    fs.WriteByte(33);
+            //    fs.WriteByte(33);
+            //}
+
+            //using (DisposableExample example = new DisposableExample())
+            //{
+            //    example.Method();
+            //}
+
+            using (StreamReader sr = new StreamReader(@"..\..\test.txt"))
             {
-                while (fs.Position < fs.Length)
+                while (!sr.EndOfStream)
                 {
-                    int b = fs.ReadByte();
-                    Console.WriteLine(b + " " + (char)b);
+                    var line = sr.ReadLine();
+                    Console.WriteLine(line);
                 }
-
-                fs.WriteByte(33);
-                fs.WriteByte(33);
-                fs.WriteByte(33);
             }
 
-            using (DisposableExample example = new DisposableExample())
+            using (StreamWriter sw = new StreamWriter(@"..\..\test.txt"))
             {
-                example.Method();
+               sw.Write("StreamWriter voltam");
+               sw.WriteLine("StreamWriter voltam2");
             }
-            
+
             Console.ReadKey();
         }
     }
