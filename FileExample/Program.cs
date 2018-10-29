@@ -17,7 +17,7 @@ namespace FileExample
         static void Main(string[] args)
         {
             FileMode mode = FileMode.Open;
-            FileStream fs = new FileStream("test.txt", mode, FileAccess.ReadWrite, FileShare.Read);
+            FileStream fs = new FileStream(@"..\..\test.txt", mode, FileAccess.ReadWrite, FileShare.Read);
             try
             {
                 while (fs.Position < fs.Length)
