@@ -30,6 +30,11 @@ namespace FileExample
                 fs.WriteByte(33);
                 fs.WriteByte(33);
             }
+
+            using (DisposableExample example = new DisposableExample())
+            {
+                example.Method();
+            }
             
             Console.ReadKey();
         }
