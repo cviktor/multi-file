@@ -45,7 +45,7 @@ namespace FileExample
                 }
             }
 
-            using (StreamWriter sw = new StreamWriter(@"..\..\test.txt"))
+            using (StreamWriter sw = new StreamWriter(new FileStream(@"..\..\test.txt", FileMode.Append)))
             {
                sw.Write("StreamWriter voltam");
                sw.WriteLine("StreamWriter voltam2");
